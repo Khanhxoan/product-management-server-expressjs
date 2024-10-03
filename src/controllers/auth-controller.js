@@ -1,6 +1,4 @@
 // const Score = require('../models/product-model');
-const { multipleMongooseToObject } = require('../ultis/mongoose');
-const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user-model');
 const generateToken = (userId) => {
