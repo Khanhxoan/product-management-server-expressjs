@@ -2,9 +2,13 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/user-model');
 const generateToken = (userId) => {
-    return jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN,
-    });
+    return jwt.sign(
+        { userId },
+        'd4abe6daaee9c9f58461d977cc79ae0cd1c8a67b1f2d1a02ed5df6b4de9d0675aaee5ce77abaed77615a0c2a4f12aa6e1ac280daa89c016b8f2dd8837deeadee',
+        {
+            expiresIn: '30m',
+        },
+    );
 };
 
 class AuthController {
