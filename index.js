@@ -16,16 +16,16 @@ db.connect();
 // Use cookies
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+
 // Handle middleware
 app.use(
     express.urlencoded({
         extended: true,
     }),
 );
-// Middleware để parse JSON
-app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
+app.use(bodyParser.json());
 
 // HTTP logger
 app.use(morgan('combined'));
