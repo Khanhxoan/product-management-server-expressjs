@@ -27,7 +27,14 @@ class AuthController {
                 secure: process.env.NODE_ENV === 'production',
             });
 
-            res.status(200).json({ message: 'Login successfully' });
+            res.status(200).json({
+                user: {
+                    password: user.username,
+                    role: user.role,
+                    avatarUrl: user.avatarUrl,
+                },
+                message: 'Login successfully',
+            });
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
