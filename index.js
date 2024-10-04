@@ -6,12 +6,15 @@ const port = process.env.PORT || 9001;
 const routes = require('./src/routes');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 // Connect to DB
 const db = require('./src/config/db');
 db.connect();
 
+// Use cookies
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Handle middleware
 app.use(
