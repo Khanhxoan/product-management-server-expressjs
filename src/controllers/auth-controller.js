@@ -30,7 +30,7 @@ class AuthController {
 
             res.status(200).json({
                 user: {
-                    password: user.username,
+                    username: user.username,
                     role: user.role,
                     avatarUrl: user.avatarUrl,
                 },
@@ -69,7 +69,7 @@ class AuthController {
     };
 
     logout = (req, res) => {
-        res.clearCookie('accessToken');
+        res.clearCookie('token');
         res.status(200).json({ message: 'Logout successful' });
     };
 }
