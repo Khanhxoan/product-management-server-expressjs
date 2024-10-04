@@ -16,7 +16,12 @@ db.connect();
 // Use cookies
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+app.use(
+    cors({
+        origin: '*',
+        credentials: true,
+    }),
+);
 
 // Handle middleware
 app.use(
