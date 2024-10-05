@@ -19,8 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const allowedOrigins = [
     'http://localhost:9000',
-    'products-management-demo-seven.vercel.app',
-    'products-management-demo.vercel.app',
+    'https://products-management-demo-seven.vercel.app/',
+    'https://products-management-demo.vercel.app/',
 ];
 app.use(
     cors({
