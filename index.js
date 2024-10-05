@@ -16,9 +16,21 @@ db.connect();
 // Use cookies
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const allowedOrigins = [
+    'http://localhost:9000',
+    'products-management-demo-seven.vercel.app',
+    'products-management-demo.vercel.app',
+];
 app.use(
     cors({
-        origin: 'http://localhost:9000',
+        origin: function (origin, callback) {
+            if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+                callback(null, true);
+            } else {
+                callback(new Error('Not allowed by CORS'));
+            }
+        },
         credentials: true,
     }),
 );
